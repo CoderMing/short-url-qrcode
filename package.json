@@ -1,0 +1,29 @@
+{
+  "name": "short-url-qrcode",
+  "version": "0.0.1",
+  "description": "短链接及二维码生成API - 使用NodeJS &amp; Redis",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && babel-node dist/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CoderMing/short-url-qrcode.git"
+  },
+  "author": "coderming",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CoderMing/short-url-qrcode/issues"
+  },
+  "homepage": "https://github.com/CoderMing/short-url-qrcode#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "koa": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.46",
+    "typescript": "^2.9.2"
+  }
+}
