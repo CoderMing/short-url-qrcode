@@ -4,7 +4,7 @@
   "description": "短链接及二维码生成API - 使用NodeJS &amp; Redis",
   "main": "app.js",
   "scripts": {
-    "test": "standard src/ && rm -rf dist/ && tsc",
+    "test": "rm -rf dist/ && tsc",
     "start": "rm -rf dist/ && tsc && babel-node dist/app.js"
   },
   "repository": {
