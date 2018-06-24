@@ -18,7 +18,7 @@ router.get('/api', async ctx => {
 })
 
 app.use(async ctx => {
-  ctx.body = 'hello world'
+  ctx.body = 'hello'
 })
 
 app.listen(3000, () => {
