@@ -1,14 +1,14 @@
 import * as Koa from 'koa'
-import * as os from 'os'
+import * as logger from 'koa-logger'
 
 const app = new Koa()
 
-console.log(os.hostname())
+app.use(logger())
 
-app.use(async (ctx: any) => {
+app.use(async ctx => {
   ctx.body = 'hello world'
 })
 
 app.listen(3000)
 
-console.log('Server running on port 3000')
+console.log('Server running on http://localhost:3000')
