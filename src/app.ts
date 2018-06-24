@@ -5,6 +5,8 @@ import * as bodyParser from 'koa-bodyparser'
 
 import conf from './config'
 
+import routes from './routes/index'
+
 const app = new Koa()
 const router = new KoaRouter()
 
@@ -13,13 +15,7 @@ app.use(bodyParser())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-router.get('/api', async ctx => {
-  ctx.body = 'api'
-})
-
-app.use(async ctx => {
-  ctx.body = 'hello'
-})
+routes.setRouter(router)
 
 app.listen(3000, () => {
   console.log(`Server running on http://${conf.hostName}:${conf.port}`)
