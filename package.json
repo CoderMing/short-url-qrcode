@@ -7,7 +7,7 @@
     "dev": "ts-node src/app.ts",
     "build": "rm -rf dist/ && tsc && gulp",
     "start": "rm -rf dist/ && tsc && gulp && node dist/app.js",
-    "test": "rm -rf dist/ && tsc && gulp"
+    "test": "rm -rf dist/ && tsc && gulp && node test/test.js"
   },
   "repository": {
     "type": "git",
