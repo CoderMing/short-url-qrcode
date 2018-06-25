@@ -15,8 +15,10 @@ app.use(bodyParser())
 app.use(router.routes())
 app.use(router.allowedMethods())
 
+// 引入 router
 routes.setRouter(router)
 
+// 监听端口
 app.listen(3000, () => {
   console.log(`Server running on http://${conf.hostName}:${conf.port}`)
 })
