@@ -19,6 +19,11 @@ app.use(router.allowedMethods())
 // 引入 router
 routes.setRouter(router)
 
+console.log(path.join(__dirname))
+
+app.use(ctx => {
+  ctx.body = 'no'
+})
 // 监听端口
 app.listen(3000, () => {
   console.log(`
