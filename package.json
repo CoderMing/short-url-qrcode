@@ -7,7 +7,7 @@
     "dev": "ts-node src/app.ts",
     "build": "rm -rf dist/ && tsc && gulp",
     "start": "rm -rf dist/ && tsc && gulp && node dist/app.js",
-    "test": "rm -rf dist/ && tsc && gulp && node test/test.js"
+    "test": "rm -rf dist/ && tsc && gulp && mocha test/test.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
     "gulp-imagemin": "^4.1.0",
@@ -45,6 +46,7 @@
     "koa-bodyparser": "^4.2.1",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "mocha": "^5.2.0",
     "npm": "^6.1.0",
     "qrcode": "^1.2.0",
     "redis": "^2.8.0",
