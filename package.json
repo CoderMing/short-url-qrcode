@@ -24,6 +24,7 @@
     "@types/koa-bodyparser": "^5.0.0",
     "@types/koa-logger": "^3.1.0",
     "@types/koa-router": "^7.0.30",
+    "@types/koa-static": "^4.0.0",
     "@types/qrcode": "^1.2.0",
     "@types/redis": "^2.8.6",
     "babel-cli": "^6.26.0",
@@ -41,6 +42,7 @@
     "npm": "^6.1.0",
     "qrcode": "^1.2.0",
     "redis": "^2.8.0",
+    "ts-node": "^7.0.0",
     "typescript": "^2.9.2"
   }
 }

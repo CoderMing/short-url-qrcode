@@ -2,6 +2,7 @@ import * as KoaRouter from 'koa-router'
 import * as Koa from 'koa'
 
 import api from './api'
+import staticRoute from './static'
 // RouterSet 格式
 interface RouterSet {
   // setRouter函数，用于在主函数中引入router
@@ -20,7 +21,7 @@ export interface RouterFormat {
   method: (string | string[])
   // 操作函数
   // async function 参数为ctx, next
-  func(ctx: Koa.Context): any
+  func: Koa.Middleware
 }
 
 const routes: RouterSet = {
@@ -30,7 +31,8 @@ const routes: RouterSet = {
     })
   },
   routerList: [
-    api
+    api,
+    staticRoute
   ]
 }
 

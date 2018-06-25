@@ -1,3 +1,4 @@
+import * as path from 'path'
 import * as Koa from 'koa'
 import * as logger from 'koa-logger'
 import * as KoaRouter from 'koa-router'

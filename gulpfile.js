@@ -11,7 +11,7 @@ gulp.task('image', () => {
 gulp.task('styles', () => {
   gulp.src('src/styles/**/*.*')
       .pipe(stylus())
-      .pipe(gulp.dest('dist/stylus'))
+      .pipe(gulp.dest('dist/styles'))
 })
 
 gulp.task('default', ['image', 'styles'])
