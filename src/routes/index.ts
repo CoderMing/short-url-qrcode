@@ -1,10 +1,9 @@
 import * as KoaRouter from 'koa-router'
 import * as Koa from 'koa'
-import * as path from 'path'
 
+import cloverRouter from './clover'
 import apiRouter from './api'
 import { imagesRouter, stylesRouter } from './static'
-
 // RouterSet 格式
 interface RouterSet {
   // setRouter函数，用于在主函数中引入router
@@ -33,6 +32,7 @@ const routes: RouterSet = {
     })
   },
   routerList: [
+    cloverRouter,
     imagesRouter,
     stylesRouter,
     apiRouter,

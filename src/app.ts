@@ -22,13 +22,19 @@ routes.setRouter(router)
 console.log(path.join(__dirname))
 
 app.use(ctx => {
-  ctx.body = 'no'
+  ctx.status = 404
+  ctx.body = JSON.stringify({
+    status: '404',
+    message: 'not found'
+  })
 })
+
 // 监听端口
 app.listen(3000, () => {
   console.log(`
     程序运行在: http://${conf.hostName}:${conf.port}
-    api接口地址: http://${conf.hostName}:${conf.port}/api`
+    api接口地址: http://${conf.hostName}:${conf.port}/api
+    图片文件接口地址: http://${conf.hostName}:${conf.port}/images`
   )
 })
 

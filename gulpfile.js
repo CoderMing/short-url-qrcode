@@ -1,6 +1,7 @@
-let gulp = require('gulp')
-let imageMin = require('gulp-imagemin')
-let stylus = require('gulp-stylus')
+const gulp = require('gulp')
+const imageMin = require('gulp-imagemin')
+const stylus = require('gulp-stylus')
+const babel = require('gulp-babel')
 
 gulp.task('image', () => {
   gulp.src('src/images/**/*.*')
@@ -14,4 +15,9 @@ gulp.task('styles', () => {
       .pipe(gulp.dest('dist/styles'))
 })
 
-gulp.task('default', ['image', 'styles'])
+gulp.task('babel', () =>
+    gulp.src('dist/**/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('dist/'))
+);
+gulp.task('default', ['image', 'styles', 'babel'])

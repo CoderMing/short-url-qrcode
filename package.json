@@ -4,8 +4,10 @@
   "description": "短链接及二维码生成API - 使用NodeJS &amp; Redis",
   "main": "app.js",
   "scripts": {
-    "test": "rm -rf dist/ && tsc && gulp",
-    "start": "rm -rf dist/ && tsc && gulp && babel-node dist/app.js"
+    "dev": "ts-node src/app.ts",
+    "build": "rm -rf dist/ && tsc && gulp",
+    "start": "rm -rf dist/ && tsc && gulp && node dist/app.js",
+    "test": "rm -rf dist/ && tsc && gulp"
   },
   "repository": {
     "type": "git",
@@ -19,6 +21,7 @@
   "homepage": "https://github.com/CoderMing/short-url-qrcode#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/http-errors": "^1.6.1",
     "@types/ip": "^0.0.31",
     "@types/koa": "^2.0.46",
     "@types/koa-bodyparser": "^5.0.0",
@@ -28,8 +31,11 @@
     "@types/qrcode": "^1.2.0",
     "@types/redis": "^2.8.6",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-stylus": "^2.7.0",
     "http-errors": "^1.6.3",

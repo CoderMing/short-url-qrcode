@@ -2,5 +2,8 @@
   "presets": [
       "env"
   ],
-  "plugins": []
+  "plugins": [
+    "transform-runtime"
+  ],
+  "minified": true
 }
