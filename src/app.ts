@@ -20,6 +20,9 @@ routes.setRouter(router)
 
 // 监听端口
 app.listen(3000, () => {
-  console.log(`Server running on http://${conf.hostName}:${conf.port}`)
+  console.log(`
+    程序运行在: http://${conf.hostName}:${conf.port}
+    api接口地址: http://${conf.hostName}:${conf.port}/api`
+  )
 })
 

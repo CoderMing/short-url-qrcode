@@ -4,8 +4,8 @@
   "description": "短链接及二维码生成API - 使用NodeJS &amp; Redis",
   "main": "app.js",
   "scripts": {
-    "test": "rm -rf dist/ && tsc",
-    "start": "rm -rf dist/ && tsc && babel-node dist/app.js"
+    "test": "rm -rf dist/ && tsc && gulp",
+    "start": "rm -rf dist/ && tsc && gulp && babel-node dist/app.js"
   },
   "repository": {
     "type": "git",
@@ -25,8 +25,12 @@
     "@types/koa-logger": "^3.1.0",
     "@types/koa-router": "^7.0.30",
     "@types/qrcode": "^1.2.0",
+    "@types/redis": "^2.8.6",
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^4.1.0",
+    "gulp-stylus": "^2.7.0",
     "http-errors": "^1.6.3",
     "install": "^0.11.0",
     "ip": "^1.1.5",
