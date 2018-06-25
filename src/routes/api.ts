@@ -1,10 +1,6 @@
 import * as Koa from 'koa'
 
-export interface RouterFormat {
-  url: (string | RegExp)
-  method: string
-  func(ctx: Koa.Context): any
-}
+import { RouterFormat } from './index'
 
 const api: RouterFormat = {
   url: '/',
@@ -14,4 +10,4 @@ const api: RouterFormat = {
   }
 }
 
-export { api }
+export default api
