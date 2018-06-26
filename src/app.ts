@@ -1,4 +1,3 @@
-import * as path from 'path'
 import * as Koa from 'koa'
 import * as logger from 'koa-logger'
 import * as KoaRouter from 'koa-router'
@@ -18,8 +17,6 @@ app.use(router.allowedMethods())
 
 // 引入 router
 routes.setRouter(router)
-
-console.log(path.join(__dirname))
 
 app.use(ctx => {
   ctx.status = 404

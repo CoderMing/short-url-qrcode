@@ -10,14 +10,15 @@ gulp.task('image', () => {
 })
 
 gulp.task('styles', () => {
-  gulp.src('src/styles/**/*.*')
+  gulp.src('src/styles/**/!(utils).styl')
       .pipe(stylus())
       .pipe(gulp.dest('dist/styles'))
 })
 
 gulp.task('babel', () =>
-    gulp.src('dist/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('dist/'))
-);
+  gulp.src('dist/**/*.js')
+      .pipe(babel())
+      .pipe(gulp.dest('dist/'))
+)
+
 gulp.task('default', ['image', 'styles', 'babel'])
