@@ -9,9 +9,8 @@ router.get('/:str', async (ctx, next) => {
   let str = ctx.params.str
   let res = await getUrl(str)
 
-  console.log(res)
   if (res.length) {
-    ctx.response.redirect(`http://${res}`)
+    ctx.response.redirect(`${res}`)
   }
 })
 

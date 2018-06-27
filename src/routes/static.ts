@@ -6,8 +6,8 @@ const router = new KoaRouter()
 
 import { RouterFormat } from './index'
 
-router.get('/images/*', staticRouter(path.join(__dirname, '../')))
-      .get('/styles/*', staticRouter(path.join(__dirname, '../')))
+router.get('images/*', staticRouter(path.join(__dirname, '../')))
+      .get('styles/*', staticRouter(path.join(__dirname, '../')))
 
 const routes: RouterFormat = {
   path: '/',

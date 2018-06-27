@@ -7,9 +7,12 @@ interface Config {
   hostName: string
   //  mysql连接的参数
   mysqlConnect: string | ConnectionConfig
+  // 这里计算得出正确的url 用来方便开发时引入
+  // 会自动计算 可以不手动赋值
+  hostUrl?: string
 }
 
-const conf: Config = {
+const _config: Config = {
   port: 3000,
   hostName: 'localhost',
   mysqlConnect: {
@@ -17,7 +20,10 @@ const conf: Config = {
     user     : 'root',
     password : 'coderming',
     database : 'short_url'
-  }
+  },
 }
 
-export default conf
+_config.hostUrl = `http://${_config.hostName}${
+                    _config.port === 80 ? '' : ':' + _config.port}`
+
+export default _config

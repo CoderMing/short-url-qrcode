@@ -19,7 +19,7 @@ const routerList: RouterFormat[] =  [
   staticRoutes,
   apiRoutes,
   cloverRoutes,
-  redictRoutes
+  redictRoutes,
 ]
 
 routerList.forEach((obj, index) => {
