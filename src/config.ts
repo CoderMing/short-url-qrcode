@@ -5,7 +5,7 @@ interface Config {
   port: number
   // 主机名 调试期间使用localhost即可
   hostName: string
-  //
+  //  mysql连接的参数
   mysqlConnect: string | ConnectionConfig
 }
 
@@ -16,7 +16,7 @@ const conf: Config = {
     host     : 'localhost',
     user     : 'root',
     password : 'coderming',
-    // database : 'short_url'
+    database : 'short_url'
   }
 }
 

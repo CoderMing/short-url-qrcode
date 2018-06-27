@@ -1,18 +1,23 @@
 import * as KoaRouter from 'koa-router'
 // import { promisify } from 'util'
 import * as qs from 'querystring'
-import sql from '../../interface/connection'
+import { setUrl } from '../../interface/connection'
+import _config from '../../config'
 
 const router = new KoaRouter()
 
-router.get('/', async ctx => {
+router.get('/', async (ctx, next) => {
   const query = qs.parse(ctx.request.querystring)
-  // 创建hash键
-  const hashStr = Math.random().toString(36).substr(2)
+  if (!query.url) return await next()
 
-  sql.setUrl(<string>query.url, hashStr)
+  let res = await setUrl(<string>query.url)
+  console.log(res)
   
-  ctx.body = '12312321'
+  ctx.body = {
+    url: `http://${_config.hostName}${
+          _config.port === 80 ? '' : ':' + _config.port
+          }/s/${res}`
+  }
 })
 
 export default router

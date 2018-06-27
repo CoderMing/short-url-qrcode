@@ -3,6 +3,7 @@ import * as KoaRouter from 'koa-router'
 import staticRoutes from './static'
 import apiRoutes from './api'
 import cloverRoutes from './clover'
+import redictRoutes from './redict'
 
 const router = new KoaRouter()
 
@@ -17,7 +18,8 @@ export interface RouterFormat {
 const routerList: RouterFormat[] =  [
   staticRoutes,
   apiRoutes,
-  cloverRoutes
+  cloverRoutes,
+  redictRoutes
 ]
 
 routerList.forEach((obj, index) => {
