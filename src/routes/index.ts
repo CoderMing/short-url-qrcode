@@ -1,5 +1,4 @@
 import * as KoaRouter from 'koa-router'
-import * as Koa from 'koa'
 
 import staticRoutes from './static'
 import apiRoutes from './api'
