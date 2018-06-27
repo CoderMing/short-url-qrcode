@@ -29,8 +29,10 @@ router.get('/', async (ctx, next) => {
   
 
   ctx.body = {
+    status: 200,
+    message: 'request OK',
     url: `${_config.hostUrl}/s/${res}`,
-    qrcodeUrl: `${_config.hostUrl}/images/${res}.png`
+    qrcodeUrl: `${_config.hostUrl}/images/${res}.png`,
   }
 })
 

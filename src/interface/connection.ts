@@ -16,7 +16,6 @@ connection.connect(function(err) {
   if (err) return console.error('error connecting: ' + err.stack)
 })
 
-console.log(baseName)
 // 处理没有初始化数据库的问题
 if (true) {
   (async () => {

@@ -25,11 +25,10 @@ app.use(ctx => {
 })
 
 // 监听端口
-app.listen(3000, () => {
-  console.log(`
+app.listen(`${conf.port}`, () => {
+  console.log(`\
     程序运行在: http://${conf.hostName}:${conf.port}
-    api接口地址: http://${conf.hostName}:${conf.port}/api
-    图片文件接口地址: http://${conf.hostName}:${conf.port}/images`
+    点此测试: http://${conf.hostName}:${conf.port}/api/generate?url=https://coderming.com`
   )
 })
 
