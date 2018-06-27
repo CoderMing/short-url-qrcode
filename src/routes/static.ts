@@ -1,18 +1,17 @@
 import * as path from 'path'
 import * as staticRouter from 'koa-static'
+import * as KoaRouter from 'koa-router'
+
+const router = new KoaRouter()
 
 import { RouterFormat } from './index'
 
-const imagesRouter: RouterFormat = {
-  path: '/images/*',
-  method: 'get',
-  func: staticRouter(path.join(__dirname, '../'))
+router.get('/images/*', staticRouter(path.join(__dirname, '../')))
+      .get('/styles/*', staticRouter(path.join(__dirname, '../')))
+
+const routes: RouterFormat = {
+  path: '/',
+  router
 }
 
-const stylesRouter: RouterFormat = {
-  path: '/styles/*',
-  method: 'get',
-  func: staticRouter(path.join(__dirname, '../'))
-}
-
-export { imagesRouter, stylesRouter }
+export default routes

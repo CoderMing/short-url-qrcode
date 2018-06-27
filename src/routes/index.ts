@@ -1,42 +1,28 @@
 import * as KoaRouter from 'koa-router'
 import * as Koa from 'koa'
 
-import cloverRouter from './clover'
-import apiRouter from './api'
-import { imagesRouter, stylesRouter } from './static'
-// RouterSet 格式
-interface RouterSet {
-  // setRouter函数，用于在主函数中引入router
-  setRouter(router: KoaRouter): void
-  // router列表
-  // 内容为RouterFormat
-  routerList: {
-    [index: number]: RouterFormat
-  }
-}
+import staticRoutes from './static'
+import apiRoutes from './api'
+import cloverRoutes from './clover'
+
+const router = new KoaRouter()
+
 // Router Module 输出的格式
 export interface RouterFormat {
   // 监听的路由
   path: (string | RegExp)
-  // 监听的方式，string或者string数组
-  method: (string | string[])
-  // 操作函数
-  // async function 参数为ctx, next
-  func: Koa.Middleware
+  // Router主体
+  router: KoaRouter
 }
 
-const routes: RouterSet = {
-  setRouter(router: KoaRouter) {
-    this.routerList.forEach((obj: RouterFormat, index: number) => {
-      router.get(obj.path, obj.func)
-    })
-  },
-  routerList: [
-    cloverRouter,
-    imagesRouter,
-    stylesRouter,
-    apiRouter,
-  ]
-}
+const routerList: RouterFormat[] =  [
+  staticRoutes,
+  apiRoutes,
+  cloverRoutes
+]
 
-export default routes
+routerList.forEach((obj, index) => {
+  router.use(obj.path, obj.router.routes(), obj.router.allowedMethods())
+})
+
+export default router

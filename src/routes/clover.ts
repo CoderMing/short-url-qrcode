@@ -1,13 +1,17 @@
 import * as Koa from 'koa'
+import * as KoaRouter from 'koa-router'
+
+const router = new KoaRouter()
 
 import { RouterFormat } from './index'
 
-const cloverRouter: RouterFormat = {
+router.get('/', async (ctx: Koa.Context) => {
+  ctx.body = '这是首页'
+})
+
+const routes: RouterFormat = {
   path: '/',
-  method: 'get',
-  async func(ctx: Koa.Context) {
-    ctx.body = '这是首页'
-  }
+  router
 }
 
-export default cloverRouter
+export default routes
