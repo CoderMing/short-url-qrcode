@@ -3,39 +3,42 @@ import { promisify } from 'util'
 
 import _config from '../config'
 
-const connection = mysql.createConnection(_config.mysqlConnect)
+// 曲线救国。。。
+// 先将参数的database设置为空 然后连接上再想法子进数据库。。。
+let realConf = <mysql.ConnectionConfig>_config.mysqlConnect
+let baseName = realConf.database
+realConf.database = void 0
+
+const connection = mysql.createConnection(realConf)
 const sqlQuery = promisify(connection.query).bind(connection)
 
 connection.connect(function(err) {
   if (err) return console.error('error connecting: ' + err.stack)
 })
 
+console.log(baseName)
 // 处理没有初始化数据库的问题
-if (!(<mysql.ConnectionConfig>_config.mysqlConnect).database) {
+if (true) {
   (async () => {
-    await sqlQuery('USE short_url')
-    .then(() => {
-      console.log('已自动进入 short_url 为名的数据库')
+    await sqlQuery(`CREATE DATABASE IF NOT EXISTS ${baseName}`)
+    .then(async () => {
+      await sqlQuery(`USE ${baseName}`)
     })
-    .catch(async () => {
-      await sqlQuery('CREATE DATABASE IF NOT EXISTS short_url')
-      .then(async () => {
-        console.log('检测到未配置数据库，已自动创建 short_url 为名的数据库')
-        await sqlQuery('USE short_url')
-      })
+    .then(async () => {
+      // 初始化列表
+      await sqlQuery(
+        `CREATE TABLE IF NOT EXISTS url_set (
+          prev_url varchar(255) NOT NULL,
+          short_url varchar(255) NOT NULL, 
+          PRIMARY KEY (prev_url)
+        ) COMMENT='';`)
+    })
+    .catch(() => {
+      console.log('?')
     })
   })()
 }
-// 初始化列表
-sqlQuery(
-  `CREATE TABLE IF NOT EXISTS short_url.url_set (
-    prev_url varchar(255) NOT NULL,
-    short_url varchar(255) NOT NULL, 
-    PRIMARY KEY (prev_url)
-  ) COMMENT='';`)
-.then(() => {
-    console.log('已生成short_url表')
-})
+
 
 async function setUrl(prev: string): Promise<string> {
   let prevData = await sqlQuery(`SELECT * FROM url_set WHERE prev_url='${prev}'`)
@@ -62,6 +65,8 @@ async function getUrl(str: string): Promise<string> {
 
   return ''
 }
+
+
 export {
   getUrl,
   setUrl,

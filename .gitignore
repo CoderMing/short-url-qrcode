@@ -1,6 +1,7 @@
 **/.DS_Store
 dist/
 src/images/
+src/config.ts
 
 # Logs
 logs
