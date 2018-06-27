@@ -4,7 +4,7 @@
 
 本后台是使用 NodeJS &amp; MySql &amp; TypeScript 搭建的短链接API，同时自带生成二维码的接口。
 
-**线上地址：**http://s.coderming.com
+线上地址：http://s.coderming.com
 
 目前接口暂无限制，后期可能会添加请求限制机制。建议搭建在自己的平台下。
 

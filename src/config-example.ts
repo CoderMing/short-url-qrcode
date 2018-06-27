@@ -3,7 +3,7 @@ import { ConnectionConfig } from 'mysql'
 interface Config {
   // 监听的端口
   port: number
-  // 主机名 调试期间使用localhost即可
+  // 主机名 请换成你的域名
   hostName: string
   //  mysql连接的参数
   mysqlConnect: string | ConnectionConfig
@@ -17,8 +17,8 @@ const _config: Config = {
   hostName: 'localhost',
   mysqlConnect: {
     host     : 'localhost',
-    user     : 'root',
-    password : 'coderming',
+    user     : 'coderming',
+    password : 'password',
     database : 'short_url'
   },
 }
