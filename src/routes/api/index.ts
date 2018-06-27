@@ -1,4 +1,3 @@
-import * as Koa from 'koa'
 import * as KoaRouter from 'koa-router'
 
 import geneRouter from './generate'
