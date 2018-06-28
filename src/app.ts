@@ -2,7 +2,7 @@ import * as Koa from 'koa'
 import * as logger from 'koa-logger'
 import * as bodyParser from 'koa-bodyparser'
 
-import conf from './config'
+import _config from './config'
 
 import router from './routes/index'
 
@@ -25,10 +25,10 @@ app.use(ctx => {
 })
 
 // 监听端口
-app.listen(`${conf.port}`, () => {
+app.listen(`${_config.port}`, () => {
   console.log(`\
-    程序运行在: http://${conf.hostName}:${conf.port}
-    点此测试: http://${conf.hostName}:${conf.port}/api/generate?url=https://coderming.com`
+    程序运行在: http://${_config.hostUrl}
+    点此测试: http://${_config.hostUrl}/api/generate?url=https://coderming.com`
   )
 })
 
