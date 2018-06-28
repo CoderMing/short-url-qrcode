@@ -62,13 +62,13 @@ http://s.coderming.com/api/generate?url=https://coderming.com
 $ git clone https://github.com/CoderMing/short-url-qrcode.git
 ```
 
-克隆完成后，进入 `src/`文件夹，并将其中的`config-example.ts`更名为`config.ts`。
+克隆完成后，进入 `src/`文件夹，并将其中的`config-example.ts`复制一份至新的名为`config.ts`的文件。
 
-修改`config-example.ts`内的配置项。具体的内容已经在改文件夹中注释得很清楚了。
+修改`config.ts`内的配置项。具体的内容已经在文件中注释得很清楚了。
 
 #### 关于数据库的配置
 
-特别简单的配置！当你填了 `mysqlConnect`的`database`属性后，就无需进入数据库专门建表建库了～这里涉及到了一个曲线救国的方式，具体可以看 [这个代码文件 ](https://github.com/CoderMing/short-url-qrcode/blob/master/src/interface/connection.ts)。
+当你填了 `mysqlConnect`的`database`属性后，就无需进入数据库专门建表建库了。这里涉及到了一个曲线救国的方式，具体可以看 [这个代码文件](https://github.com/CoderMing/short-url-qrcode/blob/master/src/interface/connection.ts) 。
 
 
 

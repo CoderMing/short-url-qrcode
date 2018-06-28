@@ -14,7 +14,7 @@ router.get('/', async (ctx, next) => {
   const url = <string>query.url
   const urlReg = /(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/
   
-  if (!urlReg.test(url)) {
+  if (!urlReg.test(url) || url.length > 100) {
     ctx.status = 403
     ctx.body = {
       status: 403,

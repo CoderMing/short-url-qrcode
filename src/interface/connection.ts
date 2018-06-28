@@ -32,9 +32,6 @@ if (true) {
           PRIMARY KEY (prev_url)
         ) COMMENT='';`)
     })
-    .catch(() => {
-      console.log('?')
-    })
   })()
 }
 
@@ -48,10 +45,10 @@ async function setUrl(prev: string): Promise<string> {
     // 循环寻找可以用的hashStr
     let hashStr: string
     do {
-      hashStr = Math.random().toString(36).substr(2)
+      hashStr = Math.random().toString(36).substr(2, 6)
     } while (await sqlQuery(`SELECT * FROM url_set WHERE short_url='${hashStr}'`).length)
   
-   await sqlQuery(`insert into url_set 
+    await sqlQuery(`insert into url_set 
       ( prev_url, short_url) values ( '${prev}', '${hashStr}')`)
     return hashStr
   }
