@@ -31,7 +31,7 @@ const _config: Config = {
 }
 
 _config.proxyPort = _config.proxyPort || _config.port
-_config.hostUrl = `http://${_config.hostName}${
+_config.hostUrl = `${_config.hostName}${
                     _config.proxyPort === 80 ? '' : ':' + _config.port}`
 
 export default _config
