@@ -21,8 +21,9 @@ GET请求。
 例子：
 http://s.coderming.com/api/generate?url=https://coderming.com
 返回：
-{   "status":200,
-	"message":"request OK",
+{
+    "status":200,
+    "message":"request OK",
     "url": "http://s.coderming.com:2369/s/87qnhvivyvk", //短链接
     "qrcodeUrl": "http://s.coderming.com:2369/images/87qnhvivyvk.png" // 短链接对应的二维码
 }
