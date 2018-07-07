@@ -1,5 +1,4 @@
 import * as KoaRouter from 'koa-router'
-// import { promisify } from 'util'
 import * as qs from 'querystring'
 import { setUrl } from '../../interface/connection'
 import { createQR } from '../../interface/qrcode'
