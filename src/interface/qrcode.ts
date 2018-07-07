@@ -1,6 +1,6 @@
 import * as path from 'path'
 import * as QRCode from 'qrcode'
-import { promisify } from 'util';
+import { promisify } from 'util'
 
 import _config from '../config'
 
