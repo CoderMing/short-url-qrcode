@@ -10,7 +10,6 @@ const app = new Koa()
 
 app.use(logger())
 app.use(bodyParser())
-app.use(router.routes())
 app.use(router.allowedMethods())
 
 // 引入 router
