@@ -4,6 +4,7 @@ import staticRoutes from "./static";
 import apiRoutes from "./api";
 import cloverRoutes from "./clover";
 import redictRoutes from "./redict";
+import logRoutes from "./log";
 
 const router = new KoaRouter();
 
@@ -16,6 +17,7 @@ export interface RouterFormat {
 }
 
 const routerList: RouterFormat[] = [
+  logRoutes,
   staticRoutes,
   apiRoutes,
   cloverRoutes,
