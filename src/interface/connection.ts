@@ -35,9 +35,9 @@ if (true) {
         await sqlQuery(
           `CREATE TABLE IF NOT EXISTS url_log (
           prev_url varchar(255) NOT NULL,
-          time varchar(255) NOT NULL, 
+          log_time varchar(255) NOT NULL, 
           is_success varchar(255), 
-          PRIMARY KEY (prev_url)
+          PRIMARY KEY (log_time)
         ) COMMENT='';`
         );
       });
@@ -72,7 +72,7 @@ async function setUrl(prev: string): Promise<string> {
 async function setLog(str: string): Promise<string> {
   await sqlQuery(
     `insert into url_log 
-      ( prev_url, time, is_success) values ( '${str}', '${Date.now()}', 'yes')`
+      ( prev_url, log_time, is_success) values ( '${str}', '${Date.now()}', 'yes')`
   );
 
   return String(Date.now());

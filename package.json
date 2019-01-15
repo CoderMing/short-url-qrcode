@@ -19,7 +19,9 @@
     "url": "https://github.com/CoderMing/short-url-qrcode/issues"
   },
   "homepage": "https://github.com/CoderMing/short-url-qrcode#readme",
-  "dependencies": {},
+  "dependencies": {
+    "nodemon": "^1.18.9"
+  },
   "devDependencies": {
     "@types/http-errors": "^1.6.1",
     "@types/ip": "^0.0.31",
