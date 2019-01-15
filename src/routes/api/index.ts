@@ -1,16 +1,16 @@
-import * as KoaRouter from 'koa-router'
+import * as KoaRouter from "koa-router";
 
-import geneRouter from './generate'
+import geneRouter from "./generate";
 
-const router = new KoaRouter()
+const router = new KoaRouter();
 
-import { RouterFormat } from '../index'
+import { RouterFormat } from "../index";
 
-router.use('/generate', geneRouter.routes(), geneRouter.allowedMethods())
+router.use("/generate", geneRouter.routes(), geneRouter.allowedMethods());
 
 const routes: RouterFormat = {
-  path: '/api',
+  path: "/api",
   router
-}
+};
 
-export default routes
+export default routes;

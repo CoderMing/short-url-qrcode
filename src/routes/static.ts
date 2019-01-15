@@ -1,17 +1,18 @@
-import * as path from 'path'
-import * as staticRouter from 'koa-static'
-import * as KoaRouter from 'koa-router'
+import * as path from "path";
+import * as staticRouter from "koa-static";
+import * as KoaRouter from "koa-router";
 
-const router = new KoaRouter()
+const router = new KoaRouter();
 
-import { RouterFormat } from './index'
+import { RouterFormat } from "./index";
 
-router.get('images/*', staticRouter(path.join(__dirname, '../')))
-      .get('styles/*', staticRouter(path.join(__dirname, '../')))
+router
+  .get("images/*", staticRouter(path.join(__dirname, "../")))
+  .get("styles/*", staticRouter(path.join(__dirname, "../")));
 
 const routes: RouterFormat = {
-  path: '/',
+  path: "/",
   router
-}
+};
 
-export default routes
+export default routes;
