@@ -1,17 +1,17 @@
 import * as Koa from "koa";
 import * as logger from "koa-logger";
 import * as bodyParser from "koa-bodyparser";
-
 import _config from "./config";
+const cors = require("koa-cors");
 
 import router from "./routes/index";
 
 const app = new Koa();
 
+app.use(cors());
 app.use(logger());
 app.use(bodyParser());
 app.use(router.allowedMethods());
-
 // 引入 router
 app.use(router.routes());
 

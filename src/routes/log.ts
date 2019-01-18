@@ -10,7 +10,6 @@ import { RouterFormat } from "./index";
 router.get("*", async (ctx: Koa.Context, next) => {
   const query = qs.parse(ctx.request.querystring);
   await setLog(<string>query.url);
-  console.log(123);
   await next();
 });
 
